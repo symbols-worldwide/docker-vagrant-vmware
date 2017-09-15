@@ -8,7 +8,7 @@ RUN VERSION=$(wget -O- https://releases.hashicorp.com/vagrant/ | fgrep 'href="/v
     dpkg -i /root/vagrant.deb && \
     rm /root/vagrant.deb && \
     apt-get -y update && \
-    apt-get -y install rsync xorg && \
+    apt-get -y install rsync && \
     vagrant plugin install vagrant-vmware-workstation && \
     apt-get -y clean
 
