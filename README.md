@@ -3,8 +3,11 @@
 This is a Debian-based container with Vagrant installed and VMWare as the
 available provider.
 
+VMWare modules and services need to be installed and running on your host.
+
 VT-x will be required if using this image on a VM. In order to use VMWare
-this container must be run with the --privileged parameter.
+this container must be run with the `--privileged` and `--net=host` parameters.
+Please be aware of the security implications of this.
 
 The default command is a script that calls 'vagrant up' and then waits until
 the VM is no longer running before terminating. This ensures that the
