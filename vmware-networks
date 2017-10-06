@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Fake the output of vmware-networks --status, as the services should be running
+# on the host machine. This may make it harder to debug if things aren't working
+# on the host properly, but I couldn't find another easy workaround.
+
+cat <<EOF
+Bridge networking on vmnet0 is running
+DHCP service on vmnet1 is running
+Hostonly virtual adapter on vmnet1 is enabled
+DHCP service on vmnet8 is running
+NAT service on vmnet8 is running
+Hostonly virtual adapter on vmnet8 is enabled
+All the services configured on all the networks are running
+

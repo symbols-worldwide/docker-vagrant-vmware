@@ -8,11 +8,11 @@ RUN VERSION=$(wget -O- https://releases.hashicorp.com/vagrant/ | fgrep 'href="/v
     dpkg -i /root/vagrant.deb && \
     rm /root/vagrant.deb && \
     apt-get -y update && \
-    apt-get -y install rsync && \
+    apt-get -y install rsync sudo kmod && \
     vagrant plugin install vagrant-vmware-workstation && \
     apt-get -y clean
 
-COPY run_vagrant_and_wait.sh /usr/local/bin/run_vagrant_and_wait.sh
+COPY vmware-networks /usr/bin/vmware-networks
 
 CMD ["/usr/local/bin/run_vagrant_and_wait.sh"]
 WORKDIR /vagrant
