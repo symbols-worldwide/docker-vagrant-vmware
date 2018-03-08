@@ -9,7 +9,7 @@ RUN VERSION=$(wget -O- https://releases.hashicorp.com/vagrant/ | fgrep 'href="/v
     rm /root/vagrant.deb && \
     apt-get -y update && \
     apt-get -y install rsync sudo kmod && \
-    vagrant plugin install vagrant-vmware-workstation && \
+    script -e -c "vagrant plugin install vagrant-vmware-workstation" /dev/null && \
     apt-get -y clean
 
 COPY vmware-networks /usr/bin/vmware-networks
